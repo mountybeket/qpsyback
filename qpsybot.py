@@ -10,7 +10,7 @@ import string
 
 
 bot = telebot.TeleBot(config.token) #должно быть в начале. Вызывает токен
-cred = credentials.Certificate(r'C:\Users\erhsh\Desktop\qpsyback\key.json')
+cred = credentials.Certificate("home\qpsyback\key.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://qpsyback-default-rtdb.firebaseio.com/' })
 
