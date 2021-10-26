@@ -10,7 +10,7 @@ import string
 
 
 bot = telebot.TeleBot(config.token) #должно быть в начале. Вызывает токен
-cred = credentials.Certificate("home\qpsyback\key.json")
+cred = credentials.Certificate("/home/qpsyback/key.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://qpsyback-default-rtdb.firebaseio.com/' })
 
@@ -85,4 +85,13 @@ def start_dialog(message):
         bot.send_message(message.from_user.id,"Ошибка! Выберите из перечисленных.")
 
 
-bot.polling(none_stop=True) #в конце. Бесконечно.
+bot.infinity_polling(True)
+
+while 1:
+    try:
+        bot.polling(none_stop=True)
+        print(cycle)
+        time.sleep(3)
+    except Exception as e:
+        print(e)
+        pass
